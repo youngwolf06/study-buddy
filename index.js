@@ -9,9 +9,8 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 const app = express();
 app.use(cors());
-app.use(express.json()); // parse JSON requests
+app.use(express.json()); 
 
-// ChatGPT endpoint
 app.post('/chat', async (req, res) => {
   try {
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
