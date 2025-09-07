@@ -14,15 +14,15 @@ body {
 }
 .scene {
   position: relative;
-  width: 100vw;   /* full screen width */
-  height: 100vh;  /* full screen height */
-  overflow: hidden; /* prevent scrollbars */
+  width: 100vw;   
+  height: 100vh;  
+  overflow: hidden; 
 }
 .bg {
   width: 100%;
   height: 100%;
-  object-fit: contain;   /* show entire image */
-  object-position: center; /* center it */
+  object-fit: contain;   
+  object-position: center;
 }
 
 .light {
@@ -34,7 +34,6 @@ body {
   z-index: 100;
 }
 
-/* Hotspots */
 .to-do-helper {
   position: fixed;
   width: 160px; 
@@ -68,7 +67,6 @@ body {
   z-index: 1200;
 }
 
-/* Containers */
 #todo-container, #chatgpt-container, #calculator-container {
   background: rgba(0,0,0,0.95);
   border: 3px solid #00FF00;
@@ -97,7 +95,6 @@ body {
   width: 240px;
 }
 
-/* Inputs */
 #todo-input, #chat-input, #calc-display {
   width: calc(100% - 20px);
   padding: 5px 10px;
@@ -115,7 +112,6 @@ body {
   margin-bottom: 10px;
 }
 
-/* Buttons */
 #add-todo, #chatgpt-btn {
   padding: 5px 10px;
   font-size: 12px;
@@ -145,7 +141,6 @@ body {
   color: black;
 }
 
-/* Navbar */
 .navbar {
   position: fixed;
   top: 0; left: 0;
@@ -183,7 +178,6 @@ body {
   pointer-events: none;
 }
 
-/* Message box */
 #message-box {
   position: fixed;
   bottom: 150px; left: 50%;
