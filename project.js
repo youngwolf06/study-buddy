@@ -1,18 +1,17 @@
-// Overlay
+
 const overlay = document.querySelector('.shush-overlay');
 document.addEventListener("mousemove", () => {
   overlay.classList.add("hidden");
   setTimeout(() => overlay.remove(), 1000);
 }, { once: true });
 
-// Flashlight
 const light = document.querySelector('.light');
 window.addEventListener('mousemove', e => {
   light.style.setProperty('--x', e.clientX + 'px');
   light.style.setProperty('--y', e.clientY + 'px');
 });
 
-// Timed messages
+
 const messageBox = document.getElementById('message-box');
 const lines = [
   { text: "You shouldn't be on your device while studying", delay: 1000 },
@@ -26,7 +25,6 @@ lines.forEach(line => {
   }, line.delay);
 });
 
-// ChatGPT mock (local backend)
 const chatgptBtn = document.getElementById('chatgpt-btn');
 const chatInput = document.getElementById('chat-input');
 const chatResponse = document.getElementById('chat-response');
@@ -55,7 +53,6 @@ async function sendChat() {
   }
 }
 
-// To-do list
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
 const todoInput = document.getElementById('todo-input');
 const addBtn = document.getElementById('add-todo');
@@ -102,7 +99,6 @@ todoInput.addEventListener('keypress', e => {
 });
 renderTodos();
 
-// Show/hide helpers
 document.querySelector('.to-do-helper').addEventListener('click', () => {
   toggleDisplay('#todo-container');
 });
@@ -117,7 +113,6 @@ function toggleDisplay(selector) {
   el.style.display = (el.style.display === 'block') ? 'none' : 'block';
 }
 
-// Calculator
 const calcDisplay = document.getElementById("calc-display");
 const calcButtons = document.querySelectorAll("#calc-buttons button");
 let calcInput = "";
@@ -142,7 +137,6 @@ calcButtons.forEach(button => {
   });
 });
 
-// Hover messages
 function attachHoverMessage(selector, message) {
   const el = document.querySelector(selector);
   el.addEventListener("mouseenter", () => messageBox.textContent = message);
