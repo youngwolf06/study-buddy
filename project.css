@@ -1,0 +1,197 @@
+:root {
+  --light-x: -999px;
+  --light-y: -999px;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Press Start 2P', cursive;
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+  background: black;
+}
+.scene {
+  position: relative;
+  width: 100vw;   /* full screen width */
+  height: 100vh;  /* full screen height */
+  overflow: hidden; /* prevent scrollbars */
+}
+.bg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* show entire image */
+  object-position: center; /* center it */
+}
+
+.light {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--x) var(--y), transparent 10%, rgba(0,0,0,0.8) 20%);
+  z-index: 100;
+}
+
+/* Hotspots */
+.to-do-helper {
+  position: fixed;
+  width: 160px; 
+  height: 50px;
+  top: 65%; 
+  left: 45%;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1200;
+}
+
+.study-buddy {
+  position: fixed;
+  width: 120px; 
+  height: 200px;
+  top: 55vh; 
+  left: 950px;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1200;
+}
+
+.calculator-div {
+  position: fixed;
+  width: 60px; 
+  height: 50px;
+  top: 570px; 
+  left: 420px;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1200;
+}
+
+/* Containers */
+#todo-container, #chatgpt-container, #calculator-container {
+  background: rgba(0,0,0,0.95);
+  border: 3px solid #00FF00;
+  color: #00FF00;
+  padding: 15px;
+  z-index: 1000;
+  display: none;
+}
+
+#todo-container {
+  position: fixed;
+  top: 40vh; left: 65vh;
+  width: 300px;
+}
+
+#chatgpt-container {
+  position: fixed;
+  bottom: 50px; left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+}
+
+#calculator-container {
+  position: fixed;
+  top: 20vh; right: 5vh;
+  width: 240px;
+}
+
+/* Inputs */
+#todo-input, #chat-input, #calc-display {
+  width: calc(100% - 20px);
+  padding: 5px 10px;
+  font-size: 12px;
+  background: black;
+  color: #00FF00;
+  border: 2px solid #00FF00;
+  outline: none;
+}
+
+#calc-display {
+  height: 40px;
+  font-size: 18px;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+#add-todo, #chatgpt-btn {
+  padding: 5px 10px;
+  font-size: 12px;
+  background: #000;
+  color: #00FF00;
+  border: 2px solid #00FF00;
+  cursor: pointer;
+}
+
+#calc-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+#calc-buttons button {
+  padding: 10px;
+  font-size: 16px;
+  background: black;
+  color: #00FF00;
+  border: 2px solid #00FF00;
+  cursor: pointer;
+}
+
+#calc-buttons button:hover {
+  background: #00FF00;
+  color: black;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 50px;
+  background: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 2000;
+}
+
+.menu {
+  font-size: 20px;
+  color: white;
+}
+
+.shush-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  z-index: 3000;
+  transition: opacity 1s ease; 
+}
+
+
+.shush-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Message box */
+#message-box {
+  position: fixed;
+  bottom: 150px; left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);
+  color: #00FF00;
+  padding: 15px;
+  max-width: 400px;
+  text-align: center;
+  z-index: 1000;
+}
