@@ -1,17 +1,18 @@
-
+//the overlay disappears in a second after detection of mouse movement 
 const overlay = document.querySelector('.shush-overlay');
 document.addEventListener("mousemove", () => {
   overlay.classList.add("hidden");
   setTimeout(() => overlay.remove(), 1000);
 }, { once: true });
 
+//setting up the position of the cursor in light div to generate "light' in that position
 const light = document.querySelector('.light');
 window.addEventListener('mousemove', e => {
   light.style.setProperty('--x', e.clientX + 'px');
   light.style.setProperty('--y', e.clientY + 'px');
 });
 
-
+//generating messages periodically 
 const messageBox = document.getElementById('message-box');
 const lines = [
   { text: "You shouldn't be on your device while studying", delay: 1000 },
@@ -25,13 +26,7 @@ lines.forEach(line => {
   }, line.delay);
 });
 
-const chatgptBtn = document.getElementById('chatgpt-btn');
-const chatInput = document.getElementById('chat-input');
-const chatResponse = document.getElementById('chat-response');
-chatgptBtn.addEventListener('click', sendChat);
-chatInput.addEventListener('keypress', e => {
-  if (e.key === 'Enter') sendChat();
-});
+//setting up logic to send request to server, receive and display response
 async function sendChat() {
   const input = chatInput.value.trim();
   if (!input) return;
@@ -53,10 +48,21 @@ async function sendChat() {
   }
 }
 
+//setting up events for sendChat function
+const chatgptBtn = document.getElementById('chatgpt-btn');
+const chatInput = document.getElementById('chat-input');
+const chatResponse = document.getElementById('chat-response');
+chatgptBtn.addEventListener('click', sendChat);
+chatInput.addEventListener('keypress', e => {
+  if (e.key === 'Enter') sendChat();
+});
+
+
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
 const todoInput = document.getElementById('todo-input');
 const addBtn = document.getElementById('add-todo');
 const todoList = document.getElementById('todo-list');
+
 
 function renderTodos() {
   todoList.innerHTML = '';
@@ -84,7 +90,8 @@ function saveAndRender() {
 }
 function addTask() {
   const text = todoInput.value.trim();
-  if (!text) return;
+  if (!text) 
+    return;
   if (todos.some(todo => todo.text.toLowerCase() === text.toLowerCase())) {
     alert("Task already exists!");
     return;
@@ -113,6 +120,7 @@ function toggleDisplay(selector) {
   el.style.display = (el.style.display === 'block') ? 'none' : 'block';
 }
 
+//adding functionality to the buttons of the calculator 
 const calcDisplay = document.getElementById("calc-display");
 const calcButtons = document.querySelectorAll("#calc-buttons button");
 let calcInput = "";
@@ -137,6 +145,7 @@ calcButtons.forEach(button => {
   });
 });
 
+//helping the user find the hidden features
 function attachHoverMessage(selector, message) {
   const el = document.querySelector(selector);
   el.addEventListener("mouseenter", () => messageBox.textContent = message);
