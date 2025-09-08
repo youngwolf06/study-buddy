@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="project.css">
 </head>
 <body>
-  
+  <!--Setting up the overlay-->
   <div class="shush-overlay">Shush! He's studying!</div>
 
-  
+  <!--Setting up the foundation for various background features-->
   <div class="scene">
     <img src="Background-Image.png" class="bg" alt="Background">
     <div class="bonfire-light"></div>
@@ -19,17 +19,17 @@
     <div class="lantern-light"></div>
   </div>
 
-  
+  <!--Setting up a cursor-lead light source-->
   <div class="light"></div>
 
-  
+  <!--Setting up a container to access OpenAI API-->
   <div id="chatgpt-container">
     <input type="text" id="chat-input" placeholder="Ask StudyBuddy something..." />
     <button id="chatgpt-btn">Ask</button>
     <div id="chat-response"></div>
   </div>
 
-  
+  <!--Setting up a container for To-Do List generator -->
   <div id="todo-container">
     <h2>To-Do List</h2>
     <input type="text" id="todo-input" placeholder="Add a new task" />
@@ -37,21 +37,20 @@
     <ul id="todo-list"></ul>
   </div>
 
-  
+  <!--Setting up hidden study tools around the room-->
   <div class="to-do-helper"></div>
   <div class="study-buddy"></div>
   <div class="calculator-div"></div>
 
-  
+  <!--Setting up the navigation bar with the logo-->
   <div class="navbar">
     <img src="StudyBuddyLogo.png" style="height:50px; width:120px;" alt="Logo">
-    <div class="menu">☰</div>
   </div>
 
-  
+  <!--Helps create a conversation with a 3rd person-->
   <div id="message-box"></div>
 
-  
+  <!--Setting up a container for the calculator-->
   <div id="calculator-container">
     <h2>Calculator</h2>
     <input type="text" id="calc-display" readonly />
@@ -77,7 +76,7 @@
       <button>=</button>
     </div>
   </div>
-
+  <!--Linking the file-->
   <script src="project.js"></script>
 </body>
 </html>
