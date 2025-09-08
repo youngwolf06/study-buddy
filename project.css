@@ -1,3 +1,4 @@
+/*Setting up pre-requisite light cursor logic*/
 :root {
   --light-x: -999px;
   --light-y: -999px;
@@ -12,28 +13,32 @@ body {
   overflow: hidden;
   background: black;
 }
+/*Creating a layout for the background features*/
 .scene {
   position: relative;
   width: 100vw;   
   height: 100vh;  
   overflow: hidden; 
 }
+/*Setting up the background*/
 .bg {
   width: 100%;
   height: 100%;
   object-fit: contain;   
   object-position: center;
 }
-
+/*Tracing location of cursor every moment to generate "light" around it*/
 .light {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
   pointer-events: none;
   background: radial-gradient(circle at var(--x) var(--y), transparent 10%, rgba(0,0,0,0.8) 20%);
   z-index: 100;
 }
-
+/*Generating the hidden to-do list accessor(on the table)*/
 .to-do-helper {
   position: fixed;
   width: 160px; 
@@ -44,7 +49,7 @@ body {
   cursor: pointer;
   z-index: 1200;
 }
-
+/*Clicking on our StudyBuddy will now lead to the API initiating*/
 .study-buddy {
   position: fixed;
   width: 120px; 
@@ -55,7 +60,7 @@ body {
   cursor: pointer;
   z-index: 1200;
 }
-
+/*Setting up a hidden calculator(beside the table)*/
 .calculator-div {
   position: fixed;
   width: 60px; 
@@ -66,7 +71,7 @@ body {
   cursor: pointer;
   z-index: 1200;
 }
-
+/*Styling different features' containers*/
 #todo-container, #chatgpt-container, #calculator-container {
   background: rgba(0,0,0,0.95);
   border: 3px solid #00FF00;
@@ -120,7 +125,7 @@ body {
   border: 2px solid #00FF00;
   cursor: pointer;
 }
-
+/*Setting up the calculator*/
 #calc-buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -158,6 +163,7 @@ body {
   color: white;
 }
 
+/*Setting up the overlay*/
 .shush-overlay {
   position: fixed;
   top: 0; left: 0;
@@ -172,12 +178,12 @@ body {
   transition: opacity 1s ease; 
 }
 
-
+/*Hiding the overlay*/
 .shush-overlay.hidden {
   opacity: 0;
   pointer-events: none;
 }
-
+/*Styling the message box*/
 #message-box {
   position: fixed;
   bottom: 150px; left: 50%;
